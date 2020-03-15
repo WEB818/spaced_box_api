@@ -1,54 +1,34 @@
-# Spaced repetition API!
+# Spaced box
 
-test test
+Spaced repetition is a learning technique that incorporates increasing intervals of time between subsequent review of previously learned material in order to exploit the psychological spacing effect.
 
-## Local dev setup
+Users of Spaced box can practice Hungarian using the spaced repetition technique. Words that are guessed incorrectly will be displayed to the user more frequently so they can learn Hungarian more effectively.
 
-If using user `dunder_mifflin`:
+![View Words](images/learnwords.jpg "View Words")
+![Flashcard](images/flashcard.jpg "Flashcard")
+![Correct!](images/correctresponse.jpg "Correct!")
+![Incorrect](images/incorrectresponse.jpg "Incorrect")
 
-```bash
-mv example.env .env
-createdb -U dunder_mifflin spaced_repetition
-createdb -U dunder_mifflin spaced_repetition_test
-```
+## See it live!
 
-If your `dunder_mifflin` user has a password be sure to set it in `.env` for all appropriate fields. Or if using a different user, update appropriately.
+[Spaced Box App](https://spacedbox.now.sh/)
 
-```bash
-npm install
-npm run migrate
-env MIGRATION_DB_NAME=spaced_repetition_test npm run migrate
-```
+[Spaced Box Client (GitHub)](https://github.com/WEB818/stephen-wendy-spaced-repetition)
 
-And `npm test` should work at this point
+## Technology Used
 
-## Configuring Postgres
+Front-End: _ReactJS | CSS_
 
-For tests involving time to run properly, configure your Postgres database to run in the UTC timezone.
+Back-End: _NodeJS | KnexJS | ExpressJS | PostgreSQL_
 
-1. Locate the `postgresql.conf` file for your Postgres installation.
-   1. E.g. for an OS X, Homebrew install: `/usr/local/var/postgres/postgresql.conf`
-   2. E.g. on Windows, _maybe_: `C:\Program Files\PostgreSQL\11.2\data\postgresql.conf`
-   3. E.g on Ubuntu 18.04 probably: '/etc/postgresql/10/main/postgresql.conf'
-2. Find the `timezone` line and set it to `UTC`:
+Testing: _Mocha | Chai_
 
-```conf
-# - Locale and Formatting -
+## API Documentation
 
-datestyle = 'iso, mdy'
-#intervalstyle = 'postgres'
-timezone = 'UTC'
-#timezone_abbreviations = 'Default'     # Select the set of available time zone
-```
-
-## Scripts
-
-Start the application `npm start`
-
-Start nodemon for the application `npm run dev`
-
-Run the tests mode `npm test`
-
-Run the migrations up `npm run migrate`
-
-Run the migrations down `npm run migrate -- 0`
+| Method | Path                | Purpose                                                            |
+| ------ | ------------------- | ------------------------------------------------------------------ |
+| POST   | /api/auth/token     | Authorize login                                                    |
+| POST   | /api/user           | Create account                                                     |
+| GET    | /api/language       | Gets the user's language                                           |
+| GET    | /api/language/head  | Gets the head of the linked list, determines first word to display |
+| POST   | /api/language/guess | Posts the user's guess to determine score                          |
