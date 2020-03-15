@@ -4,8 +4,8 @@ Spaced repetition is a learning technique that incorporates increasing intervals
 
 Users of Spaced box can practice Hungarian using the spaced repetition technique. Words that are guessed incorrectly will be displayed to the user more frequently so they can learn Hungarian more effectively.
 
-![View Words](images\learnwords.jpg "View Words")
-![Flashcard](images\flashcard.jpg "Flashcard")
+![View Words](images/learnwords.jpg "View Words")
+![Flashcard](images/flashcard.jpg "Flashcard")
 ![Correct!](images\correctresponse.jpg "Correct!")
 ![Incorrect](images\incorrectresponse.jpg "Incorrect")
 
